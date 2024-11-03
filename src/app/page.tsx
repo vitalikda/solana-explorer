@@ -1,19 +1,35 @@
 import { IconSolana } from "src/components/icons/networks/solana";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "src/components/ui/card";
+import { BlockList } from "./BlockList";
+import { SearchServer } from "./SearchServer";
 
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 sm:p-20">
-      <main className="row-start-2 flex flex-col items-center gap-8 sm:items-start">
-        <div className="flex items-center space-x-4 rounded-md border p-4">
+    <div className="container mx-auto flex max-w-5xl flex-col gap-6 px-10 py-10 md:gap-10 md:px-12 md:py-20">
+      <Card>
+        <CardContent className="flex flex-row items-center space-x-6">
           <IconSolana />
-          <div className="flex-1 space-y-1">
-            <h3 className="text-sm font-medium leading-none">Block Explorer</h3>
-            <p className="text-sm text-muted-foreground">
+          <div className="flex-1 space-y-2">
+            <CardTitle>Block Explorer</CardTitle>
+            <CardDescription>
               Check list of blocks and detailed view.
-            </p>
+            </CardDescription>
           </div>
-        </div>
-      </main>
+        </CardContent>
+      </Card>
+
+      <div>
+        <SearchServer />
+      </div>
+
+      <div>
+        <BlockList />
+      </div>
     </div>
   );
 }
