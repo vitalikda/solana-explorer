@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { IconSolana } from "src/components/icons/networks/solana";
 import {
   Card,
@@ -28,7 +29,9 @@ export default function Home() {
       </div>
 
       <div>
-        <BlockList />
+        <Suspense>
+          <BlockList />
+        </Suspense>
       </div>
     </div>
   );

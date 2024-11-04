@@ -209,6 +209,7 @@ export const WalletMenu = () => {
               className="text-muted-foreground hover:bg-transparent hover:text-foreground"
             >
               <IconLogout className="h-4 w-4" />
+              <span className="sr-only">Logout</span>
             </Button>
           </SheetContentClose>
         )}

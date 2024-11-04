@@ -3,7 +3,6 @@
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
-import { IconClose } from "src/components/icons/close";
 import { cn } from "src/lib/utils";
 
 const Sheet = SheetPrimitive.Root;
@@ -86,7 +85,6 @@ const SheetContentClose = React.forwardRef<
     {...props}
   >
     {children}
-    <span className="sr-only">Close</span>
   </SheetPrimitive.Close>
 ));
 SheetContentClose.displayName = SheetPrimitive.Close.displayName;

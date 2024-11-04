@@ -1,15 +1,16 @@
 "use client";
 
+import type { Route } from "next";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import SearchField, { type SearchFieldProps } from "src/components/SearchField";
 
-export const SearchServer = ({
-  queryKey = "query",
-  ...props
-}: Omit<SearchFieldProps, "value" | "onChange"> & {
+type SearchProps = Omit<SearchFieldProps, "value" | "onChange"> & {
   queryKey?: string;
-}) => {
-  const pathname = usePathname();
+};
+
+const Search = ({ queryKey = "query", ...props }: SearchProps) => {
+  const pathname = usePathname() as Route;
   const query = useSearchParams();
   const { replace } = useRouter();
 
@@ -32,3 +33,9 @@ export const SearchServer = ({
     />
   );
 };
+
+export const SearchServer = (props: SearchProps) => (
+  <Suspense>
+    <Search {...props} />
+  </Suspense>
+);
