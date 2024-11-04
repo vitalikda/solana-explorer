@@ -11,7 +11,7 @@ type Block = {
 };
 
 export const getBlocks = async (): Promise<Block[]> => {
-  const url = process.env.NEXT_PUBLIC_VERCEL_URL || "";
+  const url = process.env.NEXT_PUBLIC_API_URL || "";
   const res = await fetch(`${url.toString()}/blocks.json`);
   return res.json();
 };
