@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import NextImage from "next/image";
 import NextLink from "next/link";
-import { IconWallet } from "src/components/icons/wallet";
-import { Button } from "src/components/ui/button";
 import { Toaster } from "src/components/ui/sonner";
 import { QueryProvider } from "src/providers/QueryProvider";
+import { SolanaProvider } from "src/providers/SolanaProvider";
+import { WalletMenu } from "./WalletMenu";
 
 const gilroy = localFont({
   src: [
@@ -62,39 +62,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
         className={`${gilroy.variable} ${gtWalsheimPro.variable} font-body antialiased`}
       >
         <QueryProvider>
-          <header className="sticky top-0 z-50 w-full border-b border-border bg-background">
-            <div className="container mx-auto flex h-24 max-w-screen-2xl items-center px-12">
-              <div>
-                <NextLink
-                  className="mr-4 flex items-center space-x-2 lg:mr-6"
-                  href="/"
-                >
-                  <NextImage
-                    src="/logo.png"
-                    alt="logo"
-                    width={0}
-                    height={0}
-                    className="h-6 w-6"
-                  />
-                </NextLink>
+          <SolanaProvider>
+            <header className="sticky top-0 z-50 w-full border-b border-border bg-background">
+              <div className="container mx-auto flex h-24 max-w-screen-2xl items-center px-12">
+                <div>
+                  <NextLink
+                    className="mr-4 flex items-center space-x-2 lg:mr-6"
+                    href="/"
+                  >
+                    <NextImage
+                      src="/logo.png"
+                      alt="logo"
+                      width={0}
+                      height={0}
+                      className="h-6 w-6"
+                    />
+                  </NextLink>
+                </div>
+                <nav className="ml-auto flex items-center">
+                  <WalletMenu />
+                </nav>
               </div>
-              <nav className="ml-auto flex items-center">
-                <Button variant="default">
-                  <IconWallet className="h-6 w-6" />
-                  <span className="sr-only">Wallet Connect</span>
-                </Button>
-              </nav>
-            </div>
-          </header>
-          <main>
-            {/*  */}
-            {children}
-          </main>
+            </header>
+            <main>
+              {/*  */}
+              {children}
+            </main>
+          </SolanaProvider>
         </QueryProvider>
         <Toaster />
       </body>

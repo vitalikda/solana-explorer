@@ -50,7 +50,7 @@ export default async function Page({
         </Card>
       </div>
       <div className="grid grid-cols-4 gap-6">
-        <Card className="col-span-1">
+        <Card className="col-span-4 md:col-span-1">
           <CardContent className="flex flex-col items-center justify-center gap-2">
             <p className="font-heading text-sm text-muted-foreground">Block</p>
             <div className="flex items-center gap-2">
@@ -74,7 +74,7 @@ export default async function Page({
             </div>
           </CardContent>
         </Card>
-        <Card className="col-span-1">
+        <Card className="col-span-4 md:col-span-1">
           <CardContent className="flex flex-col items-center justify-center gap-2">
             <p className="font-heading text-sm text-muted-foreground">
               Timestamp
@@ -82,7 +82,7 @@ export default async function Page({
             <p>{timeSince(block.timestamp)}</p>
           </CardContent>
         </Card>
-        <Card className="col-span-1">
+        <Card className="col-span-4 md:col-span-1">
           <CardContent className="flex flex-col items-center justify-center gap-2">
             <p className="font-heading text-sm text-muted-foreground">
               Date (UTC)
@@ -90,7 +90,7 @@ export default async function Page({
             <p>{formatDateTime(block.timestamp)}</p>
           </CardContent>
         </Card>
-        <Card className="col-span-1">
+        <Card className="col-span-4 md:col-span-1">
           <CardContent className="flex flex-col items-center justify-center gap-2">
             <p className="font-heading text-sm text-muted-foreground">
               Transactions
@@ -106,7 +106,7 @@ export default async function Page({
             <p>{block.blockHash}</p>
           </CardContent>
         </Card>
-        <Card className="col-span-2">
+        <Card className="col-span-4 md:col-span-2">
           <CardContent className="flex flex-col items-center justify-center gap-2">
             <p className="font-heading text-sm text-muted-foreground">Leader</p>
             <div className="flex items-center gap-2">
@@ -115,7 +115,7 @@ export default async function Page({
             </div>
           </CardContent>
         </Card>
-        <Card className="col-span-2">
+        <Card className="col-span-4 md:col-span-2">
           <CardContent className="flex flex-col items-center justify-center gap-2">
             <p className="font-heading text-sm text-muted-foreground">Reward</p>
             <div className="flex items-center gap-1">

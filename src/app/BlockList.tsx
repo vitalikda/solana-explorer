@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import NextLink from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { IconSolana } from "src/components/icons/networks/solana";
 import { Button } from "src/components/ui/button";
@@ -23,6 +23,7 @@ const labels = [
 ] as const;
 
 export const BlockList = () => {
+  const router = useRouter();
   const params = useSearchParams();
   const query = params.get("query");
 
@@ -57,10 +58,10 @@ export const BlockList = () => {
         </div>
       ) : (
         blocks.map((b) => (
-          <NextLink
+          <div
             key={b.slot}
-            href={`/block/${b.slot}`}
-            className="grid w-full grid-cols-[1fr_2fr] items-center gap-4 rounded-md bg-muted px-6 py-5 text-muted-foreground hover:bg-foreground/5 hover:text-foreground md:grid-cols-[1fr_1fr_1fr_75px_1fr_1fr]"
+            onClick={() => router.push(`/block/${b.slot}`)}
+            className="grid w-full cursor-pointer grid-cols-[1fr_2fr] items-center gap-4 rounded-md bg-muted px-6 py-5 text-muted-foreground hover:bg-foreground/5 hover:text-foreground md:grid-cols-[1fr_1fr_1fr_75px_1fr_1fr]"
           >
             <div className="text-sm md:sr-only">{labels[0]}</div>
             <div>
@@ -102,7 +103,7 @@ export const BlockList = () => {
                 {`${formatNumber(b.rewardSol)} SOL (${formatMoney(b.rewardUsd)})`}
               </div>
             </div>
-          </NextLink>
+          </div>
         ))
       )}
     </div>
