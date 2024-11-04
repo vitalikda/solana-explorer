@@ -11,7 +11,7 @@ import { SearchServer } from "./SearchServer";
 
 export default function Home() {
   return (
-    <div className="container mx-auto flex max-w-5xl flex-col gap-6 px-10 py-10 md:gap-10 md:px-12 md:py-20">
+    <div className="container mx-auto flex max-w-5xl flex-col gap-6 px-5 py-6 md:gap-10 md:px-12 md:py-20">
       <Card>
         <CardContent className="flex flex-row items-center space-x-6">
           <IconSolana />

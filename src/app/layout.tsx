@@ -69,7 +69,7 @@ export default function RootLayout({
         <QueryProvider>
           <SolanaProvider>
             <header className="sticky top-0 z-50 w-full border-b border-border bg-background">
-              <div className="container mx-auto flex h-24 max-w-screen-2xl items-center px-12">
+              <div className="container mx-auto flex h-24 max-w-screen-2xl items-center px-5 md:px-12">
                 <div>
                   <NextLink
                     className="mr-4 flex items-center space-x-2 lg:mr-6"
